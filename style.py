@@ -10,11 +10,11 @@ def oops(): print('oops')
 
 def FindSum(var_one, var_two, var_three,
   var_four):
-    s = (var_one + 
-            var_two + 
-            var_three + 
+    s = (var_one +
+            var_two +
+            var_three +
             var_four)
-    return s 
+    return s
 
 def complex(real, imag = 0.0):
     return magic(r = real, i = imag)
