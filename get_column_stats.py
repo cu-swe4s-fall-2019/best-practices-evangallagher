@@ -1,4 +1,5 @@
-import sys, math
+import sys
+import math
 
 file_name = sys.argv[1]
 col_num = int(sys.argv[2])
