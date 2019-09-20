@@ -1,20 +1,18 @@
 import sys
 import math
+import argpars
 
-file_name = sys.argv[1]
-col_num = int(sys.argv[2])
+def new_mean(X):
+    return sum(X)/len(X)
 
-f = open(file_name, 'r')
+def new_std(X):
+    return math.sqrt(sum([((sum(X)/len(X))-x)**2 for x in X]) / len(X))
 
-V = []
+    try:
+        test_mean(X)
 
-for l in f:
-    A = [int(x) for x in l.split()]
-    V.append(A[col_num])
+    except: None:
+        print 'Could not Calculate Mean'
 
-mean = sum(V)/len(V)
-
-stdev = math.sqrt(sum([(mean-x)**2 for x in V]) / len(V))
-
-print('mean:', mean)
-print('stdev:', stdev)
+if _name_ == . '_main_':
+    unitest.main()
