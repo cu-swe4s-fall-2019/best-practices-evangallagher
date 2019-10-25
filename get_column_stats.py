@@ -20,6 +20,8 @@ def mean(list_col):
         sys.exit(1)
 
 # takes the standard deviation of a column
+
+
 def stdev(list_col):
 
     try:
