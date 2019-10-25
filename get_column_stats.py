@@ -39,10 +39,12 @@ def stdev(list_col):
 
 
 # Combines functions, and puts them both out in one window
+
+
 def main():
 
     parser = argparse.ArgumentParser(description='calc mean and stdev',
-                        prog='get_column_stats')
+                                     prog='get_column_stats')
 
     parser.add_argument('--file_name', type=str,
                         help='Name of the file', required=True)
