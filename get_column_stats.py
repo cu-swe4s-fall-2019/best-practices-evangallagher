@@ -4,6 +4,8 @@ import sys
 import random
 
 # Takes the mean of a given column
+
+
 def mean(list_col):
 
     try:
