@@ -3,12 +3,12 @@ import statistics
 import get_column_stats as col
 import random
 
+
 class TestCalc(unittest.TestCase):
 
     def test_mean(self):
         self.assertEqual(col.mean([1, 2, 3, 4, 5]),
                          statistics.mean([1, 2, 3, 4, 5]))
-
 
     def test_std(self):
         self.assertEqual(col.stdev([1, 2, 3, 4, 5]),
