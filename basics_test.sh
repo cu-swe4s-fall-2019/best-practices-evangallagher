@@ -1,28 +1,33 @@
 #!/bin/bash
 
+test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest
+. ssshtest
+source ssshtest
+
+echo "checking pep-8 formatting"
+
 pycodestyle style.py
 
 pycodestyle get_column_stats.py
 
+pycodestyle basics_test.py
 
-run python3 get_column_stats.py --input_file data.txt --col_num 2
-  assert_exit_code 0
+echo 'testing mean'
 
-python get_column_stats.py data.txt
-
-# random testing
-
-echo Test exit code and error message
-(for i in `seq 1 100`; do
-    echo -e "$RANDOM,$RANDOM,$RANDOM,$RANDOM,$RANDOM";
-done )> data.txt
-run random_bad_comma python3 get_column_stats.py --input_file data.txt --col_num 2
-assert_in_new_std "Input file has incorrect formatting in row"
+run test_mean python get_column_stats.py --file_name test.txt --column_number 2
+assert_in_stdout
+assert_no_stderr
 assert_exit_code 1
 
-V=1
+echo 'testing a file of random integers'
+
 (for i in `seq 1 100`; do
-    echo -e "$V\t$V\t$V\t$V\t$V";
+    echo -e "$RANDOM\t$RANDOM\t$RANDOM\t$RANDOM\t$RANDOM";
 done )> data.txt
 
-python get_column_stats.py data.txt 2
+run test_random_file python get_column_stats.py --file_name data1.txt --column_number 2
+assert_stdout
+assert_no_stderr
+assert_exit_code 1
+
+rm data.txt
